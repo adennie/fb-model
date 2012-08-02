@@ -9,7 +9,7 @@
     <relativePath />
   </parent>
   <artifactId>fb-model</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
 
   <dependencies>
 
@@ -31,8 +31,4 @@
     </dependency>
 
   </dependencies>
-
-  <scm>
-    <tag>v1.0.2</tag>
-  </scm>
 </project>
