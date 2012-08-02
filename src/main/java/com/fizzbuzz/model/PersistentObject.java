@@ -77,15 +77,15 @@ public abstract class PersistentObject
     }
 
     public static class IdEquivalence<T extends PersistentObject>
-            implements Equivalence<T> {
+            extends Equivalence<T> {
 
         @Override
-        public boolean equivalent(final T a, final T b) {
+        public boolean doEquivalent(final T a, final T b) {
             return Objects.equal(a.getId(), b.getId());
         }
 
         @Override
-        public int hash(final T item) {
+        public int doHash(final T item) {
             return Objects.hashCode(item.getId());
         }
     }
