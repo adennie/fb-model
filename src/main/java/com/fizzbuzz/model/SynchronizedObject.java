@@ -2,14 +2,12 @@ package com.fizzbuzz.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.google.common.base.Objects;
 
 public abstract class SynchronizedObject
-        extends PersistentObject
-        implements Serializable {
+        extends PersistentObject {
     private static final long serialVersionUID = 1L;
 
     private TickStamp mTickStamp;
@@ -25,7 +23,9 @@ public abstract class SynchronizedObject
     }
 
     // all fields provided. Used client-side when loading from SQLite DB and server-side when loading from datastore
-    public SynchronizedObject(final long id, final Date creationDate, final TickStamp tickStamp) {
+    public SynchronizedObject(final long id,
+            final Date creationDate,
+            final TickStamp tickStamp) {
         super(id, creationDate);
         mTickStamp = checkNotNull(tickStamp, "tickStamp");
     }

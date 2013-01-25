@@ -2,14 +2,12 @@ package com.fizzbuzz.model;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.google.common.base.Objects;
 
 public class TickingSynchronizedPersistentObject
-        extends SynchronizedObject
-        implements Serializable {
+        extends SynchronizedObject {
     private static final long serialVersionUID = 1L;
 
     private TickStamp mTicker;
@@ -29,7 +27,9 @@ public class TickingSynchronizedPersistentObject
 
     // all fields provided. Used client-side when loading from SQLite DB and server-side when
     // loading from datastore
-    public TickingSynchronizedPersistentObject(final long id, final Date creationDate, final TickStamp tickStamp,
+    public TickingSynchronizedPersistentObject(final long id,
+            final Date creationDate,
+            final TickStamp tickStamp,
             final TickStamp ticker) {
         super(id, creationDate, tickStamp);
         init(ticker);
@@ -51,7 +51,7 @@ public class TickingSynchronizedPersistentObject
     public String toString() {
         return super.toString() + Objects.toStringHelper(this)
 
-        .add("ticker", getTicker())
+                .add("ticker", getTicker())
                 .toString();
     }
 
@@ -64,7 +64,7 @@ public class TickingSynchronizedPersistentObject
         TickingSynchronizedPersistentObject other = (TickingSynchronizedPersistentObject) o;
         return super.equals(other) &&
 
-        Objects.equal(getTicker(), other.getTicker());
+                Objects.equal(getTicker(), other.getTicker());
     }
 
     @Override

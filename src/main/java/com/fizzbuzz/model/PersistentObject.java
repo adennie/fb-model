@@ -25,7 +25,8 @@ public abstract class PersistentObject
     }
 
     // all fields provided. Used client-side when loading from SQLite DB and server-side when loading from datatore
-    public PersistentObject(final long id, final Date creationDate) {
+    public PersistentObject(final long id,
+            final Date creationDate) {
         mId = id;
         mCreationDate = checkNotNull(creationDate, "creationDate");
     }
@@ -43,7 +44,7 @@ public abstract class PersistentObject
     }
 
     public void setCreationDate(final Date creationDate) {
-        mCreationDate = checkNotNull(creationDate, "creationDate");
+        mCreationDate = creationDate;
     }
 
     @Override
@@ -80,7 +81,8 @@ public abstract class PersistentObject
             extends Equivalence<T> {
 
         @Override
-        public boolean doEquivalent(final T a, final T b) {
+        public boolean doEquivalent(final T a,
+                final T b) {
             return Objects.equal(a.getId(), b.getId());
         }
 
